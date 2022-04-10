@@ -18,7 +18,7 @@ function setup() {
     canvas = createCanvas(600, 500);
     canvas.center();
 
-    video = createCanvas(VIDEO);
+    video = createCapture(VIDEO);
     video.hide();
 
     poseNet = ml5.poseNet(video, modelLoaded);
@@ -86,13 +86,13 @@ function draw() {
         }
     }
 
-    if(scoreLeftWrist > 0,2)
+    if(scoreLeftWrist > 0.2)
     {
-        circle(leftWristX.leftWristY,20);
+        circle(leftWristX,leftWristY,20);
         InNumberleftWristY = Number(leftWristY);
         remove_decimals = floor(InNumberleftWristY);
         volume = remove_decimals/500;
-        document.getElementById("volume"),innerHTML = "volume = " + volume;
+        document.getElementById("volume").innerHTML = "Volume = " + volume;
         song.setVolume(volume);
     }
 }
